@@ -1,0 +1,24 @@
+FrontLeft = Ch3 + Ch1 + Ch4
+RearLeft = Ch3 + Ch1 - Ch4
+FrontRight = Ch3 - Ch1 - Ch4
+RearRight = Ch3 - Ch1 + Ch4
+
+Where:
+Ch1 = Right joystick X-axis
+Ch3 = Left joystick Y-axis
+Ch4 = Left joystick X-axis
+Where positive is to the right or up on the joysticks.
+
+---------------------------------------------------------------
+#define DEADZONE 20
+FrontLeft = Ch3 + Ch1 + Ch4;
+RearLeft = Ch3 + Ch1 - Ch4;
+FrontRight = Ch3 - Ch1 - Ch4;
+RearRight = Ch3 - Ch1 + Ch4;
+motor[frontLeft] = abs(FrontLeft) > DEADZONE ? FrontLeft : 0;
+motor[rearLeft] = abs(RearLeft) > DEADZONE ? RearLeft : 0;
+motor[frontRight] = abs(FrontRight) > DEADZONE ? FrontRight : 0;
+motor[rearRight] = abs(RearRight) > DEADZONE ? RearRight : 0;
+
+(Actual deadzone value will depend on your gear ratio and configuration.)
+--------------------------------------------------------------------------------------------------------------
